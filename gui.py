@@ -10,7 +10,7 @@ app = QApplication([])
 
 window = QWidget()
 window.setWindowTitle("My To-Do list")
-window.resize(400, 50)
+window.resize(500, 70)
 
 layout = QVBoxLayout()
 layout.setContentsMargins(10, 10, 10, 10)
@@ -35,17 +35,24 @@ layout.addLayout(input_layout)
 
 todo_list = QListWidget()
 todo_list.setFont(font)
-layout.addWidget(todo_list)
 
-delete_button = QPushButton("Delete selected")
+delete_button = QPushButton("Complete")
 delete_button.setFont(font)
-delete_button.setFixedWidth(150)
-layout.addWidget(delete_button)
+delete_button.setFixedWidth(70)
 
-edit_button = QPushButton("Edit selected")
+edit_button = QPushButton("Edit")
 edit_button.setFont(font)
-edit_button.setFixedWidth(150)
-layout.addWidget(edit_button)
+edit_button.setFixedWidth(70)
+
+buttons_layout = QVBoxLayout()
+buttons_layout.addWidget(edit_button)
+buttons_layout.addWidget(delete_button)
+
+work_layout = QHBoxLayout()
+work_layout.addWidget(todo_list)
+work_layout.addLayout(buttons_layout)
+
+layout.addLayout(work_layout)
 
 def refresh_list():
     todo_list.clear()
