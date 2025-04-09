@@ -79,8 +79,10 @@ def add_button_click():
     if not text.strip():
         QMessageBox.warning(window, "Empty input", "Please write something before adding.")
         return
+    now = datetime.now().strftime("[%d.%m.%Y %H:%M]")
+    todo_with_time = f"{now} {text}"
     todos = functions.get_todos()
-    todos.append(text + "\n")
+    todos.append(todo_with_time + "\n")
     functions.write_todos(todos)
     input_field.clear()
     functions.refresh_list(todo_list)
@@ -141,7 +143,7 @@ def toggle_theme():
 
 def update_datetime():
     now = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    datetime_label.setText(f"Hello! It is the {now}")
+    datetime_label.setText(f"Hello! Today is {now}")
 
 timer = QTimer()
 timer.timeout.connect(update_datetime)
