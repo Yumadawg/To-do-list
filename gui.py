@@ -141,7 +141,7 @@ def toggle_theme():
 
 def update_datetime():
     now = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    datetime_label.setText(f"Hello! It is {now}")
+    datetime_label.setText(f"Hello! It is the {now}")
 
 timer = QTimer()
 timer.timeout.connect(update_datetime)
