@@ -7,6 +7,12 @@ from PyQt6.QtGui import QFont
 import functions
 import themes
 from datetime import datetime
+import os
+
+
+if not os.path.exists("files/todos.txt"):
+    with open("files/todos.txt", "w") as file:
+        pass
 
 
 app = QApplication([])
@@ -80,7 +86,7 @@ def add_button_click():
         QMessageBox.warning(window, "Empty input", "Please write something before adding.")
         return
     now = datetime.now().strftime("[%d.%m.%Y %H:%M]")
-    todo_with_time = f"{now} {text}"
+    todo_with_time = f"{now} {text.capitalize()}"
     todos = functions.get_todos()
     todos.append(todo_with_time + "\n")
     functions.write_todos(todos)

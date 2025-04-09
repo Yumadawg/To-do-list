@@ -1,0 +1,3 @@
+([('gui',
+   '/Users/igorvilamov/Documents/Projects/Todolist_app/dist/gui',
+   'EXECUTABLE')],)
